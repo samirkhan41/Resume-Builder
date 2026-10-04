@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTech Student Professional Resume Builder</title>
+  <!-- Modern clean typography for UI and Resume -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <!-- Style Link -->
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome Icons for Customizer -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="theme-blue">
+  <!-- Main Application Wrapper -->
+  <div class="app-container">
+
+    <!-- Left Sidebar Customizer Panel -->
+    <aside class="sidebar-panel no-print">
+      <header class="sidebar-header">
+        <div class="logo-area">
+          <div class="logo-icon"><i class="fa-solid fa-file-invoice"></i></div>
+          <div>
+            <h1>ResumeBuilder</h1>
+            <p>B.Tech Edition • ATS-Optimized</p>
+          </div>
+        </div>
+      </header>
+
+      <nav class="customizer-tabs">
+        <button class="tab-btn active" data-tab="personal"><i class="fa-solid fa-user"></i><span>Contact</span></button>
+        <button class="tab-btn" data-tab="education"><i
+            class="fa-solid fa-graduation-cap"></i><span>Education</span></button>
+        <button class="tab-btn" data-tab="skills"><i class="fa-solid fa-code"></i><span>Skills</span></button>
+        <button class="tab-btn" data-tab="experience"><i
+            class="fa-solid fa-briefcase"></i><span>Experience</span></button>
+        <button class="tab-btn" data-tab="projects"><i
+            class="fa-solid fa-project-diagram"></i><span>Projects</span></button>
+        <button class="tab-btn" data-tab="extra"><i
+            class="fa-solid fa-certificate"></i><span>Certifications</span></button>
+      </nav>
+
+      <div class="customizer-content">
+        <!-- PERSONAL/CONTACT TAB -->
+        <section class="tab-content active" id="tab-personal">
+          <h2 class="form-title">Personal Information</h2>
+          <div class="form-group">
+            <label for="input-name">Full Name</label>
+            <input type="text" id="input-name" placeholder="Your Name" value="Your Name">
+          </div>
+          <div class="form-group">
+            <label for="input-title">Target Role / Subtitle</label>
+            <input type="text" id="input-title" placeholder="Computer Science & Engineering Undergraduate" value="Computer Science & Engineering Undergraduate">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="input-email">Email Address</label>
+              <input type="email" id="input-email" placeholder="yourname@email.com" value="yourname@email.com">
+            </div>
+            <div class="form-group">
+              <label for="input-phone">Phone Number</label>
+              <input type="tel" id="input-phone" placeholder="+00 12345 67890" value="+00 12345 67890">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="input-location">Location</label>
+              <input type="text" id="input-location" placeholder="City, Country" value="City, Country">
+            </div>
+            <div class="form-group">
+              <label for="input-portfolio">Portfolio URL</label>
+              <input type="url" id="input-portfolio" placeholder="yourportfolio.com" value="https://yourportfolio.com">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="input-github">GitHub Profile (URL or Username)</label>
+              <input type="text" id="input-github" placeholder="github.com/yourusername"
+                value="https://github.com/yourusername">
+            </div>
+            <div class="form-group">
+              <label for="input-linkedin">LinkedIn Profile (URL or Username)</label>
+              <input type="text" id="input-linkedin" placeholder="linkedin.com/in/yourusername"
+                value="https://linkedin.com/in/yourusername">
+            </div>
+          </div>
+        </section>
+
+        <!-- EDUCATION TAB -->
+        <section class="tab-content" id="tab-education">
+          <h2 class="form-title">Education</h2>
+          <div id="education-inputs">
+            <!-- Loopable education list -->
+            <div class="education-block form-card" data-index="0">
+              <div class="card-header">
+                <h3>Undergraduate Degree</h3>
+              </div>
+              <div class="form-group">
+                <label>Institution Name</label>
+                <input type="text" class="edu-inst" placeholder="University / College Name"
+                  value="University / College Name">
+              </div>
+              <div class="form-group">
+                <label>Degree & Major</label>
+                <input type="text" class="edu-degree" placeholder="Degree Name / Major" value="Degree Name / Major">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Graduation Year/Period</label>
+                  <input type="text" class="edu-date" placeholder="YYYY - YYYY" value="YYYY - YYYY">
+                </div>
+                <div class="form-group">
+                  <label>GPA / CGPA</label>
+                  <input type="text" class="edu-gpa" placeholder="0.0 / 10.0" value="0.0 / 10.0">
+                </div>
+              </div>
+            </div>
+
+            <div class="education-block form-card" data-index="1">
+              <div class="card-header">
+                <h3>High School / Secondary</h3>
+                <button class="delete-btn" onclick="removeEducation(1)"><i class="fa-solid fa-trash-can"></i></button>
+              </div>
+              <div class="form-group">
+                <label>School Name</label>
+                <input type="text" class="edu-inst" placeholder="School Name / Senior Secondary"
+                  value="School Name / Senior Secondary">
+              </div>
+              <div class="form-group">
+                <label>Board / Core Studies</label>
+                <input type="text" class="edu-degree" placeholder="Board / Stream" value="Board / Stream">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Graduation Year/Period</label>
+                  <input type="text" class="edu-date" placeholder="YYYY" value="YYYY">
+                </div>
+                <div class="form-group">
+                  <label>Percentage / GPA</label>
+                  <input type="text" class="edu-gpa" placeholder="00%" value="00%">
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="action-btn outline-btn" id="add-education-btn"><i class="fa-solid fa-plus"></i> Add
+            Education</button>
+        </section>
+
+        <!-- SKILLS TAB -->
+        <section class="tab-content" id="tab-skills">
+          <h2 class="form-title">Technical Skills</h2>
+          <p class="tab-instruction">Separate categories and group skills so ATS parses them logically. Keep
+            descriptions succinct.</p>
+          <div class="form-group">
+            <label for="input-skill-languages">Programming Languages</label>
+            <input type="text" id="input-skill-languages" placeholder="Language 1, Language 2, Language 3"
+              value="Language 1, Language 2, Language 3, Language 4">
+          </div>
+          <div class="form-group">
+            <label for="input-skill-frameworks">Frameworks & Libraries</label>
+            <input type="text" id="input-skill-frameworks" placeholder="Framework 1, Framework 2, Library 1"
+              value="Framework 1, Framework 2, Library 1, Library 2">
+          </div>
+          <div class="form-group">
+            <label for="input-skill-tools">Developer Tools & Platforms</label>
+            <input type="text" id="input-skill-tools" placeholder="Tool 1, Tool 2, Platform 1"
+              value="Tool 1, Tool 2, Platform 1, Platform 2">
+          </div>
+          <div class="form-group">
+            <label for="input-skill-databases">Databases & Methodologies</label>
+            <input type="text" id="input-skill-databases" placeholder="Database 1, Database 2, Methodology 1"
+              value="Database 1, Database 2, Methodology 1, Methodology 2">
+          </div>
+        </section>
+
+        <!-- WORK EXPERIENCE TAB -->
+        <section class="tab-content" id="tab-experience">
+          <div class="header-with-actions">
+            <h2 class="form-title">Work Experience</h2>
+            <div class="toggle-container">
+              <label class="switch">
+                <input type="checkbox" id="toggle-experience-sec" checked>
+                <span class="slider round"></span>
+              </label>
+              <span class="toggle-label">Show Section</span>
+            </div>
+          </div>
+          <p class="tab-instruction">Focus on achievements and impact. Start each bullet point with a powerful action
+            verb (e.g., Developed, Optimized, Integrated).</p>
+
+          <div id="experience-inputs">
+            <!-- Dynamic Experience Blocks -->
+            <div class="experience-block form-card" data-index="0">
+              <div class="card-header">
+                <h3>Experience #1</h3>
+                <button class="delete-btn" onclick="removeExperience(0)"><i class="fa-solid fa-trash-can"></i></button>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Company / Organization</label>
+                  <input type="text" class="exp-company" placeholder="Company / Organization Name"
+                    value="Company / Organization Name">
+                </div>
+                <div class="form-group">
+                  <label>Job Title / Role</label>
+                  <input type="text" class="exp-role" placeholder="Job Title / Role" value="Job Title / Role">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Duration / Dates</label>
+                  <input type="text" class="exp-date" placeholder="Month YYYY - Month YYYY"
+                    value="Month YYYY - Month YYYY">
+                </div>
+                <div class="form-group">
+                  <label>Location</label>
+                  <input type="text" class="exp-location" placeholder="City, Country / Remote"
+                    value="City, Country / Remote">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Bullet Points (one per line)</label>
+                <textarea class="exp-bullets" rows="4" placeholder="- Developed key deliverables...">- Developed core features and technical implementations for key deliverables
+- Optimized system performance, query efficiency, and workflow throughput
+- Collaborated across cross-functional teams to build and deploy robust solutions</textarea>
+              </div>
+            </div>
+
+            <div class="experience-block form-card" data-index="1">
+              <div class="card-header">
+                <h3>Experience #2</h3>
+                <button class="delete-btn" onclick="removeExperience(1)"><i class="fa-solid fa-trash-can"></i></button>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Company / Organization</label>
+                  <input type="text" class="exp-company" placeholder="Company / Organization Name"
+                    value="Company / Organization Name">
+                </div>
+                <div class="form-group">
+                  <label>Job Title / Role</label>
+                  <input type="text" class="exp-role" placeholder="Job Title / Role" value="Job Title / Role">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Duration / Dates</label>
+                  <input type="text" class="exp-date" placeholder="Month YYYY - Month YYYY"
+                    value="Month YYYY - Month YYYY">
+                </div>
+                <div class="form-group">
+                  <label>Location</label>
+                  <input type="text" class="exp-location" placeholder="City, Country / Remote"
+                    value="City, Country / Remote">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Bullet Points (one per line)</label>
+                <textarea class="exp-bullets" rows="4" placeholder="- Built application components...">- Built modular application components and backend endpoints
+- Integrated third-party APIs and automated testing pipelines
+- Contributed to daily sprints, code reviews, and technical documentation</textarea>
+              </div>
+            </div>
+          </div>
+          <button class="action-btn outline-btn" id="add-experience-btn"><i class="fa-solid fa-plus"></i> Add Work
+            Experience</button>
+        </section>
+
+        <!-- PROJECTS TAB -->
+        <section class="tab-content" id="tab-projects">
+          <div class="header-with-actions">
+            <h2 class="form-title">Projects</h2>
+            <div class="toggle-container">
+              <label class="switch">
+                <input type="checkbox" id="toggle-projects-sec" checked>
+                <span class="slider round"></span>
+              </label>
+              <span class="toggle-label">Show Section</span>
+            </div>
+          </div>
+          <p class="tab-instruction">BTech students must showcase strong engineering projects. Describe the tech stack,
+            what you engineered, and numerical performance outcomes.</p>
+
+          <div id="projects-inputs">
+            <!-- Dynamic Project Blocks -->
+            <div class="project-block form-card" data-index="0">
+              <div class="card-header">
+                <h3>Project #1</h3>
+                <button class="delete-btn" onclick="removeProject(0)"><i class="fa-solid fa-trash-can"></i></button>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Project Title</label>
+                  <input type="text" class="proj-title" placeholder="Project Title 1" value="Project Title 1">
+                </div>
+                <div class="form-group">
+                  <label>Technologies Used</label>
+                  <input type="text" class="proj-tech" placeholder="Tech 1, Tech 2, Tech 3"
+                    value="Tech 1, Tech 2, Tech 3, Tech 4">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Timeline / Date</label>
+                  <input type="text" class="proj-date" placeholder="Month YYYY - Month YYYY"
+                    value="Month YYYY - Month YYYY">
+                </div>
+                <div class="form-group">
+                  <label>Project Link / Repository</label>
+                  <input type="text" class="proj-link" placeholder="https://github.com/yourusername/project-repo"
+                    value="https://github.com/yourusername/project-repo">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Bullet Points (one per line)</label>
+                <textarea class="proj-bullets" rows="4" placeholder="- Architected core workflows...">- Architected and implemented key system capabilities and core workflows
+- Integrated robust database design and real-time processing pipelines
+- Evaluated system benchmarks achieving high availability and low latency</textarea>
+              </div>
+            </div>
+
+            <div class="project-block form-card" data-index="1">
+              <div class="card-header">
+                <h3>Project #2</h3>
+                <button class="delete-btn" onclick="removeProject(1)"><i class="fa-solid fa-trash-can"></i></button>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Project Title</label>
+                  <input type="text" class="proj-title" placeholder="Project Title 2" value="Project Title 2">
+                </div>
+                <div class="form-group">
+                  <label>Technologies Used</label>
+                  <input type="text" class="proj-tech" placeholder="Tech 1, Tech 2, Tech 3"
+                    value="Tech 1, Tech 2, Tech 3, Tech 4">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Timeline / Date</label>
+                  <input type="text" class="proj-date" placeholder="Month YYYY - Month YYYY"
+                    value="Month YYYY - Month YYYY">
+                </div>
+                <div class="form-group">
+                  <label>Project Link / Repository</label>
+                  <input type="text" class="proj-link" placeholder="https://github.com/yourusername/project-repo"
+                    value="https://github.com/yourusername/project-repo">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Bullet Points (one per line)</label>
+                <textarea class="proj-bullets" rows="4" placeholder="- Built responsive interface...">- Built responsive user interface and intuitive application features
+- Developed secure authentication, role access, and state management
+- Automated deployment pipelines and unit test coverage</textarea>
+              </div>
+            </div>
+          </div>
+          <button class="action-btn outline-btn" id="add-project-btn"><i class="fa-solid fa-plus"></i> Add
+            Project</button>
+        </section>
+
+        <!-- EXTRA/ACHIEVEMENTS TAB -->
+        <section class="tab-content" id="tab-extra">
+          <div class="header-with-actions">
+            <h2 class="form-title">Certifications & Leadership</h2>
+            <div class="toggle-container">
+              <label class="switch">
+                <input type="checkbox" id="toggle-extra-sec" checked>
+                <span class="slider round"></span>
+              </label>
+              <span class="toggle-label">Show Section</span>
+            </div>
+          </div>
+          <p class="tab-instruction">Add tech certifications, cloud credentials, competitive algorithm profiles, and
+            leadership achievements.</p>
+
+          <h3
+            style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent-blue); margin-bottom: 0.75rem; font-weight: 600;">
+            Certifications</h3>
+          <div id="certifications-inputs">
+            <!-- Dynamic Certification Blocks -->
+            <div class="certification-block form-card" data-index="0">
+              <div class="card-header">
+                <h3>Certification #1</h3>
+              </div>
+              <div class="form-group">
+                <label>Certificate Name</label>
+                <input type="text" class="cert-name" placeholder="Certification Name 1" value="Certification Name 1">
+              </div>
+              <div class="form-group">
+                <label>Description / Authority</label>
+                <input type="text" class="cert-desc"
+                  placeholder="Issuing Organization / Authority • Description of skills validated."
+                  value="Issuing Organization / Authority • Validated core competencies and technical domain proficiency.">
+              </div>
+            </div>
+
+            <div class="certification-block form-card" data-index="1">
+              <div class="card-header">
+                <h3>Certification #2</h3>
+                <button class="delete-btn" onclick="removeCertification(1)"><i
+                    class="fa-solid fa-trash-can"></i></button>
+              </div>
+              <div class="form-group">
+                <label>Certificate Name</label>
+                <input type="text" class="cert-name" placeholder="Certification Name 2" value="Certification Name 2">
+              </div>
+              <div class="form-group">
+                <label>Description / Authority</label>
+                <input type="text" class="cert-desc"
+                  placeholder="Issuing Organization / Authority • Description of skills validated."
+                  value="Issuing Organization / Authority • Completed curriculum on modern architecture and best practices.">
+              </div>
+            </div>
+
+            <div class="certification-block form-card" data-index="2">
+              <div class="card-header">
+                <h3>Certification #3</h3>
+                <button class="delete-btn" onclick="removeCertification(2)"><i
+                    class="fa-solid fa-trash-can"></i></button>
+              </div>
+              <div class="form-group">
+                <label>Certificate Name</label>
+                <input type="text" class="cert-name" placeholder="Certification Name 3" value="Certification Name 3">
+              </div>
+              <div class="form-group">
+                <label>Description / Authority</label>
+                <input type="text" class="cert-desc"
+                  placeholder="Issuing Organization / Authority • Description of skills validated."
+                  value="Issuing Organization / Authority • Mastered advanced algorithms and computational concepts.">
+              </div>
+            </div>
+          </div>
+          <button class="action-btn outline-btn" id="add-certification-btn" style="margin-bottom: 1.5rem;"><i
+              class="fa-solid fa-plus"></i> Add Certification</button>
+
+          <h3
+            style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent-blue); margin-bottom: 0.75rem; font-weight: 600;">
+            Achievements & Ranks</h3>
+          <div class="form-group">
+            <label>Achievements (one per line)</label>
+            <textarea id="input-achievements" rows="4" placeholder="- Secured top placement in technical contest...">- Secured top placement in national / global competitive technical event
+- Solved hundreds of algorithmic challenges across core data structure topics
+- Winner / Finalist in institutional or national hackathon challenge</textarea>
+          </div>
+
+          <h3
+            style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent-blue); margin-bottom: 0.75rem; font-weight: 600;">
+            Leadership & Extra</h3>
+          <div class="form-group">
+            <label>Leadership / Extra-Curriculars (one per line)</label>
+            <textarea id="input-leadership" rows="4" placeholder="- Technical lead at student organization...">- Technical lead / Core member at university student organization
+- Mentored junior members and organized technical workshops and events</textarea>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sidebar Footer Settings -->
+      <footer class="sidebar-footer">
+        <div class="setting-row">
+          <label class="setting-label">Accent Color</label>
+          <div class="color-picker">
+            <button class="color-swatch active" data-theme="theme-blue" style="background-color: #0F52BA;"
+              title="Royal Blue"></button>
+            <button class="color-swatch" data-theme="theme-emerald" style="background-color: #008080;"
+              title="Emerald"></button>
+            <button class="color-swatch" data-theme="theme-charcoal" style="background-color: #333333;"
+              title="Charcoal"></button>
+            <button class="color-swatch" data-theme="theme-indigo" style="background-color: #4B0082;"
+              title="Indigo"></button>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <label class="setting-label">Typography Style</label>
+          <select id="font-family-select" class="sidebar-select">
+            <option value="font-inter">Modern Sans (Inter)</option>
+            <option value="font-system">Traditional ATS (System Sans)</option>
+            <option value="font-monospace">Tech Dev (JetBrains Mono)</option>
+          </select>
+        </div>
+
+        <div class="footer-actions">
+          <button class="action-btn primary-btn" id="print-btn">
+            <i class="fa-solid fa-print"></i> Print / Download PDF
+          </button>
+          <button class="action-btn secondary-btn" id="reset-btn" title="Restore defaults">
+            <i class="fa-solid fa-rotate-left"></i> Reset
+          </button>
+        </div>
+      </footer>
+    </aside>
+
+    <!-- Right Live Resume Preview Area -->
+    <main class="resume-preview-area">
+      <!-- Layout Mode Warning Banner for Web View -->
+      <div class="web-banner no-print">
+        <div class="banner-content">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>This is an interactive preview. Click <strong>Print / Download PDF</strong> in the sidebar. For best
+            results, select <strong>Save as PDF</strong> and uncheck <strong>Headers and Footers</strong> in browser
+            print settings.</span>
+        </div>
+      </div>
+
+      <!-- The Real A4 Sheet Canvas -->
+      <div class="resume-sheet font-inter" id="resume-canvas">
+
+        <!-- Header Info -->
+        <header class="resume-header">
+          <h1 id="resume-name" class="resume-name">Your Name</h1>
+          <p id="resume-title" class="resume-tagline">Computer Science & Engineering Undergraduate</p>
+
+          <div class="resume-contact-info">
+            <span id="resume-email-container"><i class="fa-solid fa-envelope"></i> <a href="mailto:yourname@email.com"
+                id="resume-email">yourname@email.com</a></span>
+            <span class="dot-separator">•</span>
+            <span id="resume-phone-container"><i class="fa-solid fa-phone"></i> <span id="resume-phone">+00
+                12345 67890</span></span>
+            <span class="dot-separator">•</span>
+            <span id="resume-location-container"><i class="fa-solid fa-location-dot"></i> <span
+                id="resume-location">City, Country</span></span>
+          </div>
+
+          <div class="resume-social-info">
+            <span id="resume-portfolio-container"><i class="fa-solid fa-globe"></i> <a href="https://yourportfolio.com"
+                target="_blank" id="resume-portfolio">yourportfolio.com</a></span>
+            <span class="dot-separator">•</span>
+            <span id="resume-github-container"><i class="fa-brands fa-github"></i> <a
+                href="https://github.com/yourusername" target="_blank"
+                id="resume-github">github.com/yourusername</a></span>
+            <span class="dot-separator">•</span>
+            <span id="resume-linkedin-container"><i class="fa-brands fa-linkedin"></i> <a
+                href="https://linkedin.com/in/yourusername" target="_blank"
+                id="resume-linkedin">linkedin.com/in/yourusername</a></span>
+          </div>
+        </header>
+
+        <!-- EDUCATION SECTION -->
+        <section class="resume-section" id="section-education">
+          <h2 class="section-title">EDUCATION</h2>
+          <div class="education-container" id="resume-education-list">
+            <!-- Dynamic elements will render here -->
+          </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section class="resume-section" id="section-skills">
+          <h2 class="section-title">TECHNICAL SKILLS</h2>
+          <div class="skills-grid">
+            <p id="resume-skills-languages-row"><strong>Programming Languages:</strong> <span
+                id="resume-skills-languages">Language 1, Language 2, Language 3, Language 4</span></p>
+            <p id="resume-skills-frameworks-row"><strong>Frameworks & Libraries:</strong> <span
+                id="resume-skills-frameworks">Framework 1, Framework 2, Library 1, Library 2</span></p>
+            <p id="resume-skills-tools-row"><strong>Developer Tools & Platforms:</strong> <span
+                id="resume-skills-tools">Tool 1, Tool 2, Platform 1, Platform 2</span></p>
+            <p id="resume-skills-databases-row"><strong>Databases & Methodologies:</strong> <span
+                id="resume-skills-databases">Database 1, Database 2, Methodology 1, Methodology 2</span></p>
+          </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section class="resume-section" id="section-experience">
+          <h2 class="section-title">WORK EXPERIENCE</h2>
+          <div class="experience-container" id="resume-experience-list">
+            <!-- Dynamic items -->
+          </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section class="resume-section" id="section-projects">
+          <h2 class="section-title">PROJECTS</h2>
+          <div class="projects-container" id="resume-projects-list">
+            <!-- Dynamic items -->
+          </div>
+        </section>
+
+        <!-- CERTIFICATIONS SECTION -->
+        <section class="resume-section" id="section-certifications">
+          <h2 class="section-title">CERTIFICATIONS</h2>
+          <div class="certifications-container" id="resume-certifications-list">
+            <!-- Dynamic certifications render here -->
+          </div>
+        </section>
+
+        <!-- ACHIEVEMENTS SECTION -->
+        <section class="resume-section" id="section-achievements">
+          <h2 class="section-title">ACHIEVEMENTS</h2>
+          <ul id="resume-achievements-list" class="resume-bullets">
+            <!-- Bullet points go here -->
+          </ul>
+        </section>
+
+        <!-- LEADERSHIP & VOLUNTEERING SECTION -->
+        <section class="resume-section" id="section-leadership">
+          <h2 class="section-title">LEADERSHIP & VOLUNTEERING</h2>
+          <ul id="resume-leadership-list" class="resume-bullets">
+            <!-- Bullet points go here -->
+          </ul>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
