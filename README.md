@@ -1,8 +1,7 @@
 # 📄 Resume Builder
 
 > A modern, responsive, and easy-to-use web application for creating professional resumes quickly and efficiently.
-
-🌐 **Live Demo:** [Resume Builder]([(https://resume-builder-five-ruddy.vercel.app/)])
+🌐 **Live Demo:** [Resume Builder](https://resume-builder-five-ruddy.vercel.app/)
 
 ---
 
